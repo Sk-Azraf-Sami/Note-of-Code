@@ -255,3 +255,70 @@ const packageJson = require('../../package.json');
 ```
 
 These notations help you navigate and locate files and directories within your project's file system. The exact usage may vary depending on the context and the specific file structure of your project.
+<hr>
+
+## React App starting error: 
+The error message you're encountering, "ENOSPC: System limit for the number of file watchers reached," indicates that your system has reached its limit for watching files and directories. This error can occur when you have a large number of files or directories being watched by applications like your development server, in this case, a React development server.
+
+To resolve this issue, you can increase the limit for file watchers on your system. Here's how you can do it:
+
+### Option 1: Temporarily Increase the Limit (Linux)
+
+1. Open your terminal.
+
+2. Run the following command to temporarily increase the limit:
+
+   ```bash
+   echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+   ```
+
+   This command will increase the limit to 524,288. You can adjust this number if needed.
+
+3. Try running your React app again to see if the error is resolved.
+
+### Option 2: Permanently Increase the Limit (Linux)
+
+1. Open a terminal.
+
+2. Create a new file for setting system limits. For example:
+
+   ```bash
+   sudo nano /etc/sysctl.d/60-inotify.conf
+   ```
+
+3. Add the following line to the file to permanently set the limit:
+
+   ```
+   fs.inotify.max_user_watches=524288
+   ```
+
+   You can adjust the number if needed.
+
+4. Save the file and exit the text editor.
+
+5. Apply the changes:
+
+   ```bash
+   sudo sysctl --system
+   ```
+
+6. Try running your React app again to see if the error is resolved.
+
+### Option 3: Increase the Limit on Windows
+
+If you are using Windows, you can follow these steps to increase the limit:
+
+1. Open PowerShell as an administrator.
+
+2. Run the following command to increase the file watcher limit:
+
+   ```powershell
+   wsl --shutdown
+   ```
+
+   This command will restart the Windows Subsystem for Linux (WSL), which should increase the file watcher limit.
+
+3. After running the command, restart your development server and check if the error is resolved.
+
+These steps should help you resolve the "ENOSPC: System limit for the number of file watchers reached" error and allow you to run your React app without issues.
+
