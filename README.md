@@ -322,3 +322,27 @@ If you are using Windows, you can follow these steps to increase the limit:
 
 These steps should help you resolve the "ENOSPC: System limit for the number of file watchers reached" error and allow you to run your React app without issues.
 
+<hr>
+## Destructuring: 
+No, `const customer = { name: "John" };` is not an example of destructuring. It's simply a variable declaration and assignment.
+
+In this line of code:
+
+```javascript
+const customer = { name: "John" };
+```
+
+- `const` is a keyword used to declare a constant variable.
+- `customer` is the name of the variable.
+- `{ name: "John" }` is an object literal, creating an object with a single property named `name` and assigning it the value `"John"`.
+
+Destructuring, on the other hand, is a technique in JavaScript used to extract values from objects or arrays and assign them to variables in a more concise way. Here's an example of object destructuring:
+
+```javascript
+const { name } = customer;
+```
+
+In this case, the `name` property of the `customer` object is being extracted and assigned to a variable named `name`. This is destructuring because it's a way to "destructure" the object and access its properties directly.
+
+So, to summarize, the code `const customer = { name: "John" };` is not destructuring; it's a basic assignment of an object to a variable.
+
