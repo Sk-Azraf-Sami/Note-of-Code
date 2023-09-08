@@ -323,6 +323,7 @@ If you are using Windows, you can follow these steps to increase the limit:
 These steps should help you resolve the "ENOSPC: System limit for the number of file watchers reached" error and allow you to run your React app without issues.
 
 <hr>
+
 ## Destructuring: 
 No, `const customer = { name: "John" };` is not an example of destructuring. It's simply a variable declaration and assignment.
 
